@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pra você, meu amor..</title>
+<title>Pra você, meu amor 💜</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -23,8 +23,9 @@ header{
 
 header h1{
   font-family:'Great Vibes',cursive;
-  font-size:3em;
+  font-size:3.5em;
   color:#c77dff;
+  text-shadow: 0 0 15px rgba(199, 125, 255, 0.6);
 }
 
 header p{
@@ -33,47 +34,59 @@ header p{
 
 section{
   background:rgba(0,0,0,.55);
-  margin:20px;
+  margin:20px auto;
   padding:25px;
   border-radius:20px;
   box-shadow:0 0 30px rgba(128,0,255,.25);
+  max-width: 800px;
 }
 
 h2{
   text-align:center;
   color:#d6a3ff;
   font-family:'Great Vibes',cursive;
-  font-size:2.2em;
+  font-size:2.5em;
 }
 
 .contador{
   text-align:center;
-  font-size:1.3em;
+  font-size:1.4em;
   margin-top:15px;
+  font-weight: 600;
+  color: #e0aaff;
 }
 
 .galeria{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
   gap:15px;
   margin-top:20px;
 }
 
 .galeria img{
   width:100%;
+  height: 200px;
+  object-fit: cover;
   border-radius:15px;
   box-shadow:0 0 15px rgba(200,150,255,.4);
+  transition: transform 0.3s ease;
+}
+
+.galeria img:hover {
+  transform: scale(1.05);
 }
 
 audio{
   width:100%;
   margin-top:15px;
+  border-radius: 10px;
 }
 
 footer{
   text-align:center;
-  padding:25px;
+  padding:40px 25px;
   opacity:.8;
+  font-style: italic;
 }
 
 /* flores */
@@ -83,6 +96,7 @@ footer{
   font-size:20px;
   animation: cair linear infinite;
   pointer-events:none;
+  z-index: 999;
 }
 
 @keyframes cair{
@@ -98,15 +112,15 @@ footer{
 
 <header>
   <h1>Meu Amor 💜</h1>
-  <p>Fiz isso com todo o meu amor e minha paciência pra você</p>
-</header> 
-  
+  <p>Fiz isso com todo amor do mundo pra você</p>
+</header>
+
 <section>
   <h2>💌 Mensagem</h2>
-  <p style="text-align:center">
-    Desde que você entrou na minha vida, tudo ficou mais bonito.
-    Obrigado por cada sorriso, cada momento e cada detalhe.
-    Eu te amo, Maria 🤍
+  <p style="text-align:center; line-height: 1.6;">
+    Desde que você entrou na minha vida, tudo ficou mais bonito.<br>
+    Obrigado por cada sorriso, cada momento e cada detalhe.<br>
+    <b>Eu te amo, Maria 🤍</b>
   </p>
 </section>
 
@@ -119,25 +133,24 @@ footer{
 <section>
   <h2>📸 Minha Princesa 😍</h2>
   <div class="galeria">
-    <img src="Imagem/IMG_20251227_144107_228.jpg">
-    <img src="Imagem/IMG_20250813_184447_594.jpg">
-    <img src="Imagem/IMG_20251227_145411_072.jpg">
-    <img src="Imagem/IMG_20251227_145406_095.jpg">
+    <img src="Imagem/IMG_20251227_144107_228.jpg" alt="Foto 1">
+    <img src="Imagem/IMG_20250813_184447_594.jpg" alt="Foto 2">
+    <img src="Imagem/IMG_20251227_145411_072.jpg" alt="Foto 3">
+    <img src="Imagem/IMG_20251227_145406_095.jpg" alt="Foto 4">
   </div>
 </section>
 
 <section>
-  <h2>🎵 Musikinha</h2>
-  <section>
-  <h2>🎵 Música</h2>
-  <audio controls autoplay loop style="width:100%; margin-top:15px">
+  <h2>🎵 Nossa Música</h2>
+  <audio controls loop>
     <source src="Musica/ssstik.io__kielmanibalemusic_1766856743520.mp3" type="audio/mpeg">
     Seu navegador não suporta áudio.
   </audio>
-  </section>
+  <p style="text-align: center; font-size: 0.8em; margin-top: 10px; opacity: 0.6;">(Clique no play para ouvir)</p>
+</section>
 
 <footer>
-  Pra sempre nós 🤍😍
+  Pra sempre nós 💜
 </footer>
 
 <script>
@@ -164,9 +177,10 @@ atualizar();
 
 // flores caindo
 function flor(){
+  const flores = ["🌸", "💜", "✨", "🤍"];
   const f = document.createElement("div");
   f.className = "flor";
-  f.innerText = "🌸";
+  f.innerText = flores[Math.floor(Math.random() * flores.length)];
   f.style.left = Math.random()*100+"vw";
   f.style.animationDuration = (3+Math.random()*5)+"s";
   document.body.appendChild(f);
