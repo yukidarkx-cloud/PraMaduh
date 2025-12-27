@@ -1,23 +1,37 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pra Maduh 💖</title>
+<title>Pra Maduh 💜</title>
 
 <style>
-*{
+body{
   margin:0;
   padding:0;
-  box-sizing:border-box;
-  font-family: 'Arial', sans-serif;
+  min-height:100vh;
+  background:
+    linear-gradient(rgba(0,0,40,0.65), rgba(0,0,40,0.65)),
+    url("./fundo.jpg") no-repeat center center fixed;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+  color: white;
+  overflow-x:hidden;
 }
 
-body{
-  background: radial-gradient(circle at center, #1a2a6c, #0f0f1a);
-  min-height:100vh;
-  overflow-x:hidden;
-  color:white;
+/* FLORES */
+.flower{
+  position: fixed;
+  top:-10%;
+  font-size:22px;
+  animation: fall linear infinite;
+  z-index:1;
+}
+
+@keyframes fall{
+  to{
+    transform: translateY(120vh);
+  }
 }
 
 /* LOGIN */
@@ -25,161 +39,115 @@ body{
   height:100vh;
   display:flex;
   flex-direction:column;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
   text-align:center;
+  z-index:2;
+  position:relative;
 }
 
-#login h1{
-  margin-bottom:20px;
-  font-size:26px;
-}
-
-#login input{
+input{
   padding:12px;
-  font-size:16px;
   border:none;
-  border-radius:8px;
+  border-radius:10px;
   width:220px;
-  text-align:center;
+  font-size:16px;
+  margin-top:10px;
 }
 
-#login button{
+button{
   margin-top:15px;
-  padding:10px 25px;
+  padding:12px 25px;
   border:none;
-  border-radius:8px;
-  background:#ff77aa;
+  border-radius:12px;
+  background:#b1004b;
   color:white;
   font-size:16px;
 }
 
 #erro{
   display:none;
-  margin-top:15px;
-  color:#ffb6c1;
+  margin-top:10px;
+  color:#ffb3c7;
 }
 
 /* SITE */
 #site{
   display:none;
-  padding:20px;
   text-align:center;
+  padding:40px 15px;
+  position:relative;
+  z-index:2;
 }
 
-/* GIRASSOL BRILHANTE */
-.girassol{
-  width:200px;
-  margin:20px auto;
-  animation:brilho 3s infinite alternate;
+.foto{
+  width:90%;
+  max-width:320px;
+  border-radius:20px;
+  margin:25px auto;
+  display:block;
+  box-shadow:0 0 25px rgba(255,215,0,0.7);
 }
 
-@keyframes brilho{
-  from{filter:drop-shadow(0 0 5px yellow);}
-  to{filter:drop-shadow(0 0 20px gold);}
-}
-
-/* FLORES */
-.flower{
-  position:fixed;
-  top:-50px;
-  font-size:24px;
-  animation:fall linear infinite;
-}
-
-@keyframes fall{
-  to{
-    transform:translateY(110vh);
+/* RESPONSIVO */
+@media(max-width:768px){
+  body{
+    background-position:center top;
   }
-}
-
-/* FOTOS */
-.fotos{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  margin-top:20px;
-}
-
-.fotos img{
-  width:100%;
-  border-radius:15px;
 }
 </style>
 </head>
 
 <body>
 
+<!-- FLORES -->
+<script>
+for(let i=0;i<25;i++){
+  let f=document.createElement("div");
+  f.className="flower";
+  f.innerHTML="🌸";
+  f.style.left=Math.random()*100+"vw";
+  f.style.animationDuration=8+Math.random()*5+"s";
+  document.body.appendChild(f);
+}
+</script>
+
 <!-- LOGIN -->
 <div id="login">
-  <h1>Digite a senha 💕</h1>
+  <h2>Digite a senha 🙄</h2>
   <input type="password" id="senha" placeholder="Senha">
   <button onclick="verificarSenha()">Entrar</button>
-  <span id="erro">Hmm… tenta de novo, meu amor 🤍</span>
+  <div id="erro">Hmm… tenta de novo, meu amor, slk mt burra🤍</div>
 </div>
 
 <!-- SITE -->
 <div id="site">
-  <h1>Estamos juntos há ♾️</h1>
-  <p id="contador"></p>
+  <h1>Estamos juntos há ⏱️</h1>
+  <p>23 dias juntos 💕</p>
 
-  <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Sunflower_sky_backdrop.jpg" class="girassol">
+  <img src="./IMG_20251227_144107_228.jpg" class="foto">
+  <img src="./IMG_20250813_184447_594.jpg" class="foto">
 
-  <p style="margin-top:15px;">
-    Você é meu lugar favorito no mundo 💖  
-  </p>
-
-  <div class="fotos">
-    <img src="IMG_20250813_184447_594.jpg">
-    <img src="IMG_20251227_144107_228.jpg">
-    <img src="IMG_20251227_145411_072.jpg">
-    <img src="IMG_20251227_145406_095.jpg">
-  </div>
+  <p>Você é meu lugar favorito no mundo 💖</p>
 </div>
 
 <!-- MUSICA -->
-<audio id="musica" src="musica.mp3" loop></audio>
+<audio id="musica" src="./musica.mp3" loop></audio>
 
 <script>
-const senhaCorreta = "Maria2609";
+const senhaCorreta="Maria2609";
 
 function verificarSenha(){
-  const senha = document.getElementById("senha").value;
-  const erro = document.getElementById("erro");
+  const senha=document.getElementById("senha").value;
+  const erro=document.getElementById("erro");
 
-  if(senha === senhaCorreta){
+  if(senha===senhaCorreta){
     document.getElementById("login").style.display="none";
     document.getElementById("site").style.display="block";
-    document.getElementById("musica").play();
-
-    criarFlores();
-    iniciarContador();
+    document.getElementById("musica").play().catch(()=>{});
   }else{
     erro.style.display="block";
   }
-}
-
-/* FLORES */
-function criarFlores(){
-  for(let i=0;i<20;i++){
-    const f=document.createElement("div");
-    f.className="flower";
-    f.innerText="🌸";
-    f.style.left=Math.random()*100+"vw";
-    f.style.animationDuration=5+Math.random()*5+"s";
-    document.body.appendChild(f);
-  }
-}
-
-/* CONTADOR */
-function iniciarContador(){
-  const inicio=new Date("2025-12-04");
-  setInterval(()=>{
-    const agora=new Date();
-    const diff=agora-inicio;
-    const dias=Math.floor(diff/(1000*60*60*24));
-    document.getElementById("contador").innerText=dias+" dias juntos 💕";
-  },1000);
 }
 </script>
 
