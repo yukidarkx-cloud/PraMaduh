@@ -1,272 +1,82 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nosso Amor 😍</title>
+<script>
+const senhaCorreta = "Maria2609";
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&family=Parisienne&display=swap" rel="stylesheet">
+const music = document.getElementById("music");
+const timer = document.getElementById("timer");
+const heart = document.querySelector(".heart-touch");
 
-<style>
-:root{
-  --preto:#0f0f14;
-  --branco:#ffffff;
-  --roxo:#b57edc;
-  --lilas:#c9b6e4;
-  --vinho:#7a1e3a;
-  --navy:#1b2a4e;
-}
+const senhaBox = document.getElementById("senha-box");
+const frases = document.getElementById("frases");
+const preIntro = document.getElementById("pre-intro");
+const intro = document.getElementById("intro");
+const site = document.getElementById("site");
+const erro = document.getElementById("erro");
+const senhaInput = document.getElementById("senha");
+const enter = document.getElementById("enter");
 
-*{margin:0;padding:0;box-sizing:border-box}
+/* ===== SENHA ===== */
+function verificarSenha(){
+  if (senhaInput.value === senhaCorreta) {
+    erro.style.display = "none";
+    senhaBox.style.display = "none";
+    frases.style.display = "flex";
 
-body{
-  font-family:Poppins,sans-serif;
-  background:linear-gradient(180deg,var(--preto),var(--navy));
-  color:var(--branco);
-  overflow-x:hidden;
-}
-
-/* 🌻 GIRASSOL */
-.sunflower-bg{
-  position:fixed;
-  inset:0;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:260px;
-  opacity:0.08;
-  z-index:-1;
-  animation:spin 40s linear infinite, glow 4s ease-in-out infinite;
-  pointer-events:none;
-}
-@keyframes spin{to{transform:rotate(360deg)}}
-@keyframes glow{
-  0%,100%{filter:drop-shadow(0 0 10px #ffd700)}
-  50%{filter:drop-shadow(0 0 35px #ffeb3b)}
-}
-
-/* 🌸 FLORES */
-.flower{
-  position:fixed;
-  top:-30px;
-  font-size:22px;
-  opacity:0.8;
-  animation:fall linear forwards;
-  pointer-events:none;
-}
-@keyframes fall{
-  to{
-    transform:
-      translateX(calc(-50px + 100px * var(--x)))
-      translateY(110vh)
-      rotate(360deg);
-    opacity:0;
+    setTimeout(() => {
+      frases.style.display = "none";
+      preIntro.style.display = "flex";
+    }, 7000);
+  } else {
+    erro.style.display = "block";
   }
 }
 
-/* SENHA */
-#senha-box{
-  position:fixed;inset:0;
-  background:linear-gradient(135deg,var(--roxo),var(--navy));
-  display:flex;flex-direction:column;
-  justify-content:center;align-items:center;
-  text-align:center;z-index:10;
-}
-.balao{
-  background:#fff;color:var(--vinho);
-  padding:14px 20px;border-radius:30px;
-  margin-bottom:20px;
-  animation:float 2s infinite;
-}
-@keyframes float{50%{transform:translateY(-8px)}}
-#senha-box input{
-  padding:12px;border:none;border-radius:20px;
-  width:220px;text-align:center;
-}
-#senha-box button{
-  margin-top:15px;padding:10px 30px;
-  border:none;border-radius:20px;
-  cursor:pointer;
-}
-#erro{display:none;margin-top:10px;font-size:12px}
-
-/* FRASES */
-#frases{
-  position:fixed;inset:0;
-  display:none;flex-direction:column;
-  justify-content:center;align-items:center;
-  z-index:9;
-}
-#frases p{
-  font-family:Parisienne,cursive;
-  font-size:26px;
-  opacity:0;
-  animation:grow 2s forwards;
-}
-@keyframes grow{to{opacity:1;transform:scale(1)}}
-
-/* PRÉ INTRO */
-#pre-intro{
-  position:fixed;inset:0;
-  background:linear-gradient(135deg,var(--lilas),var(--roxo));
-  display:none;flex-direction:column;
-  justify-content:center;align-items:center;
-  z-index:8;
-}
-.heart-touch{
-  font-size:90px;
-  cursor:pointer;
-  animation:pulse 2s infinite;
-}
-@keyframes pulse{50%{transform:scale(1.15)}}
-
-/* INTRO */
-#intro{
-  position:fixed;inset:0;
-  display:none;flex-direction:column;
-  justify-content:center;align-items:center;
-  text-align:center;
-}
-#intro h1{
-  font-family:Great Vibes,cursive;
-  font-size:48px;
-  color:var(--roxo);
-}
-
-/* SITE */
-#site{display:none;padding:30px;text-align:center}
-#site h2{
-  font-family:Great Vibes,cursive;
-  font-size:42px;
-  color:var(--roxo);
-}
-.gallery{
-  margin-top:40px;
-  display:flex;
-  gap:20px;
-  flex-wrap:wrap;
-  justify-content:center;
-}
-.gallery img{
-  width:160px;height:200px;
-  object-fit:cover;
-  border-radius:15px;
-  border:3px solid var(--vinho);
-}
-
-/* 📱 MOBILE A16 + IPHONE 12 */
-@media (max-width:430px){
-  .sunflower-bg{font-size:180px;opacity:0.07}
-  .heart-touch{font-size:75px}
-  #intro h1{font-size:38px;padding:0 15px}
-  #site h2{font-size:34px}
-  .gallery img{width:140px;height:180px}
-}
-</style>
-</head>
-
-<body oncontextmenu="return false">
-
-<div class="sunflower-bg">🌻</div>
-
-<audio id="music" loop>
-  <source src="musica.mp3" type="audio/mpeg">
-</audio>
-
-<div id="senha-box">
-  <div class="balao">clique aqui 👇<br>e digite a senha</div>
-  <input type="password" id="senha" placeholder="senha">
-  <button onclick="verificarSenha()">Entrar</button>
-  <span id="erro">Hmm… tenta de novo, meu amor 🤍</span>
-</div>
-
-<div id="frases">
-  <p>Senha correta 🤍</p>
-  <p>Você está pronta?</p>
-  <p>Então vamos lá…</p>
-</div>
-
-<div id="pre-intro">
-  <div class="heart-touch">🤍</div>
-  <p>Toque aqui</p>
-</div>
-
-<div id="intro">
-  <h1>Para o amor da minha vida ❤️</h1>
-  <div id="enter">Clique aqui ✨</div>
-</div>
-
-<div id="site">
-  <h2>Estamos juntos há ♾️</h2>
-  <div id="timer"></div>
-
-  <div class="gallery">
-    <img src="IMG_20250813_184447_594.jpg">
-    <img src="IMG_20251227_144107_228.jpg">
-    <img src="IMG_20251227_145411_072.jpg">
-    <img src="IMG_20251227_145406_095.jpg">
-  </div>
-</div>
-
-<script>
-const senhaCorreta="Maria2609";
-const music=document.getElementById("music");
-const timer=document.getElementById("timer");
-const heart=document.querySelector(".heart-touch");
-
-function verificarSenha(){
-  if(senha.value===senhaCorreta){
-    senha-box.style.display="none";
-    frases.style.display="flex";
-    setTimeout(()=>{
-      frases.style.display="none";
-      pre-intro.style.display="flex";
-    },7000);
-  }else erro.style.display="block";
-}
-
-/* FLORES */
-setInterval(()=>{
-  const f=document.createElement("div");
-  f.className="flower";
-  f.textContent="🌸";
-  f.style.left=Math.random()*100+"vw";
-  f.style.setProperty("--x",Math.random());
-  f.style.animationDuration=6+Math.random()*4+"s";
+/* 🌸 FLORES */
+setInterval(() => {
+  const f = document.createElement("div");
+  f.className = "flower";
+  f.textContent = "🌸";
+  f.style.left = Math.random() * 100 + "vw";
+  f.style.setProperty("--x", Math.random());
+  f.style.animationDuration = 6 + Math.random() * 4 + "s";
   document.body.appendChild(f);
-  setTimeout(()=>f.remove(),10000);
-},700);
+  setTimeout(() => f.remove(), 10000);
+}, 700);
 
-/* CORAÇÃO + MÚSICA */
-heart.onclick=()=>{
-  music.volume=0;
-  music.play().catch(()=>{});
-  let v=0;
-  let fade=setInterval(()=>{
-    if(v<0.6){v+=0.02;music.volume=v}else clearInterval(fade);
-  },120);
-  setTimeout(()=>{
-    pre-intro.style.display="none";
-    intro.style.display="flex";
-  },1000);
+/* 🤍 CORAÇÃO + MÚSICA */
+heart.onclick = () => {
+  music.volume = 0;
+  music.play().catch(() => {});
+
+  let v = 0;
+  let fade = setInterval(() => {
+    if (v < 0.6) {
+      v += 0.02;
+      music.volume = v;
+    } else {
+      clearInterval(fade);
+    }
+  }, 120);
+
+  setTimeout(() => {
+    preIntro.style.display = "none";
+    intro.style.display = "flex";
+  }, 1000);
 };
 
-enter.onclick=()=>{
-  intro.style.display="none";
-  site.style.display="block";
+/* ✨ ENTRAR NO SITE */
+enter.onclick = () => {
+  intro.style.display = "none";
+  site.style.display = "block";
 };
 
-/* CRONÔMETRO */
-const start=new Date("2025-12-03T21:06:10");
-setInterval(()=>{
-  const diff=new Date()-start;
-  timer.innerHTML=
-    Math.floor(diff/86400000)+" dias "+
-    Math.floor(diff/3600000)%24+"h "+
-    Math.floor(diff/60000)%60+"m "+
-    Math.floor(diff/1000)%60+"s";
-},1000);
-</script>
-
-</body>
-</html>
+/* ⏱️ CRONÔMETRO */
+const start = new Date("2025-12-03T21:06:10");
+setInterval(() => {
+  const diff = new Date() - start;
+  timer.innerHTML =
+    Math.floor(diff / 86400000) + " dias " +
+    Math.floor(diff / 3600000) % 24 + "h " +
+    Math.floor(diff / 60000) % 60 + "m " +
+    Math.floor(diff / 1000) % 60 + "s";
+}, 1000);
+  </script>
