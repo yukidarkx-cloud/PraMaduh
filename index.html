@@ -1,153 +1,145 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pra Maduh 💜</title>
+<title>Pra Maduh 💖</title>
 
 <style>
-body{
-  margin:0;
-  padding:0;
-  min-height:100vh;
-  background:
-    linear-gradient(rgba(0,0,40,0.65), rgba(0,0,40,0.65)),
-    url("./fundo.jpg") no-repeat center center fixed;
-  background-size: cover;
-  font-family: Arial, sans-serif;
-  color: white;
-  overflow-x:hidden;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
 }
 
-/* FLORES */
-.flower{
-  position: fixed;
-  top:-10%;
-  font-size:22px;
-  animation: fall linear infinite;
-  z-index:1;
+body {
+    min-height: 100vh;
+    background: url("4a5322d2-e72b-40f1-8c8f-f182982ba317.jpeg") no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
 }
 
-@keyframes fall{
-  to{
-    transform: translateY(120vh);
-  }
+/* FUNDO ESCURO */
+.overlay {
+    background: rgba(0, 0, 0, 0.55);
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* LOGIN */
-#login{
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  z-index:2;
-  position:relative;
+/* CARD */
+.container {
+    width: 90%;
+    max-width: 420px;
+    text-align: center;
+    padding: 25px;
+    border-radius: 20px;
+    backdrop-filter: blur(6px);
 }
 
-input{
-  padding:12px;
-  border:none;
-  border-radius:10px;
-  width:220px;
-  font-size:16px;
-  margin-top:10px;
+/* TÍTULO */
+h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
 }
 
-button{
-  margin-top:15px;
-  padding:12px 25px;
-  border:none;
-  border-radius:12px;
-  background:#b1004b;
-  color:white;
-  font-size:16px;
+h2 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: normal;
 }
 
-#erro{
-  display:none;
-  margin-top:10px;
-  color:#ffb3c7;
+/* FRASE */
+.frase {
+    margin-top: 20px;
+    font-size: 1.1rem;
 }
 
-/* SITE */
-#site{
-  display:none;
-  text-align:center;
-  padding:40px 15px;
-  position:relative;
-  z-index:2;
+/* SENHA */
+#senhaBox {
+    display: block;
 }
 
-.foto{
-  width:90%;
-  max-width:320px;
-  border-radius:20px;
-  margin:25px auto;
-  display:block;
-  box-shadow:0 0 25px rgba(255,215,0,0.7);
+input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    margin-bottom: 12px;
 }
 
-/* RESPONSIVO */
-@media(max-width:768px){
-  body{
-    background-position:center top;
-  }
+button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: none;
+    font-size: 1rem;
+    background: #ff4d6d;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* CONTEÚDO */
+#conteudo {
+    display: none;
 }
 </style>
 </head>
 
 <body>
+<div class="overlay">
 
-<!-- FLORES -->
+    <!-- SENHA -->
+    <div class="container" id="senhaBox">
+        <h1>Digite a senha 💕</h1>
+        <input type="password" id="senha" placeholder="Senha">
+        <button onclick="verificarSenha()">Entrar</button>
+    </div>
+
+    <!-- CONTEÚDO -->
+    <div class="container" id="conteudo">
+        <h1>Estamos juntos há ⏳</h1>
+        <h2 id="dias"></h2>
+
+        <div class="frase">
+            Você é meu lugar favorito no mundo 💖
+        </div>
+    </div>
+
+</div>
+
 <script>
-for(let i=0;i<25;i++){
-  let f=document.createElement("div");
-  f.className="flower";
-  f.innerHTML="🌸";
-  f.style.left=Math.random()*100+"vw";
-  f.style.animationDuration=8+Math.random()*5+"s";
-  document.body.appendChild(f);
+const senhaCorreta = "amor123"; // 🔐 TROQUE SE QUISER
+
+function verificarSenha() {
+    const senha = document.getElementById("senha").value;
+    if (senha === senhaCorreta) {
+        document.getElementById("senhaBox").style.display = "none";
+        document.getElementById("conteudo").style.display = "block";
+        calcularDias();
+    } else {
+        alert("Senha incorreta 💔");
+    }
 }
-</script>
 
-<!-- LOGIN -->
-<div id="login">
-  <h2>Digite a senha 🙄</h2>
-  <input type="password" id="senha" placeholder="Senha">
-  <button onclick="verificarSenha()">Entrar</button>
-  <div id="erro">Hmm… tenta de novo, meu amor, slk mt burra🤍</div>
-</div>
-
-<!-- SITE -->
-<div id="site">
-  <h1>Estamos juntos há ⏱️</h1>
-  <p>23 dias juntos 💕</p>
-
-  <img src="./IMG_20251227_144107_228.jpg" class="foto">
-  <img src="./IMG_20250813_184447_594.jpg" class="foto">
-
-  <p>Você é meu lugar favorito no mundo 💖</p>
-</div>
-
-<!-- MUSICA -->
-<audio id="musica" src="./musica.mp3" loop></audio>
-
-<script>
-const senhaCorreta="Maria2609";
-
-function verificarSenha(){
-  const senha=document.getElementById("senha").value;
-  const erro=document.getElementById("erro");
-
-  if(senha===senhaCorreta){
-    document.getElementById("login").style.display="none";
-    document.getElementById("site").style.display="block";
-    document.getElementById("musica").play().catch(()=>{});
-  }else{
-    erro.style.display="block";
-  }
+function calcularDias() {
+    const dataInicio = new Date("2024-12-04"); // 📅 DATA QUE VOCÊS COMEÇARAM
+    const hoje = new Date();
+    const diff = hoje - dataInicio;
+    const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+    document.getElementById("dias").innerText = dias + " dias juntos 💕";
 }
 </script>
 
