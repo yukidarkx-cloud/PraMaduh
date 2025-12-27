@@ -11,8 +11,9 @@
 body{
   margin:0;
   font-family:'Poppins', sans-serif;
-  background: linear-gradient(135deg,#0b1020,#2b0f2f,#4b0f2f);
+  background: linear-gradient(135deg,#05010a,#1a0624,#2a0a3d);
   color:#fff;
+  overflow-x:hidden;
 }
 
 header{
@@ -31,22 +32,22 @@ header p{
 }
 
 section{
-  background:rgba(0,0,0,0.55);
+  background:rgba(0,0,0,0.6);
   margin:20px;
   padding:30px;
   border-radius:20px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.5);
+  box-shadow:0 10px 30px rgba(0,0,0,0.6);
 }
 
 h2{
-  color:#b388ff;
+  color:#c7a4ff;
   text-align:center;
   font-family:'Dancing Script', cursive;
   font-size:2em;
 }
 
 .editavel{
-  border:2px dashed #b388ff;
+  border:2px dashed #c7a4ff;
   padding:15px;
   border-radius:15px;
   text-align:center;
@@ -67,7 +68,7 @@ h2{
 .galeria img{
   width:100%;
   border-radius:15px;
-  border:2px solid #b388ff;
+  border:2px solid #c7a4ff;
 }
 
 audio{
@@ -80,13 +81,31 @@ footer{
   padding:20px;
   color:#ddd;
 }
+
+/* 🌸 FLORES */
+.flor{
+  position:fixed;
+  top:-10%;
+  font-size:24px;
+  animation: cair linear infinite;
+  opacity:0.8;
+}
+
+@keyframes cair{
+  from{
+    transform: translateY(-10vh) rotate(0deg);
+  }
+  to{
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
 </style>
 </head>
 
 <body>
 
 <header>
-  <h1>Meu Amor ❤️</h1>
+  <h1>Meu Amor, EU TI AMOO ❤️</h1>
   <p>Fiz esse site pra demonstrar só um pedacinho do meu amor por ti 🤍</p>
 </header>
 
@@ -94,29 +113,29 @@ footer{
   <h2>💌 Mensagem</h2>
   <div class="editavel">
     Desde que você entrou na minha vida, tudo ficou mais bonito.
-    Obrigado por cada sorriso, cada conversa e cada momento ao seu lado.
-    Eu te amo, Maduh 😍
+    Obrigado por estar sempre cmg, por cada sorriso, cada conversa e cada momento ao seu lado.
+    Eu te amo, Maduh 💗
   </div>
 </section>
 
 <section>
-  <h2>⏳ Nosso Tempo Juntos</h2>
+  <h2>⏳ Nosso Tempo Juntinhos</h2>
   <p class="editavel">Estamos juntos desde: 03/12/2025</p>
   <div class="contador" id="contador"></div>
 </section>
 
 <section>
-  <h2>📸 MINHA Princesa,só minha 😍</h2>
+  <h2>📸 Minha Princesa 😍</h2>
   <div class="galeria">
-    <img src="IMG_20251227_144107_228.jpg">
-    <img src="IMG_20250813_184447_594.jpg">
-    <img src="IMG_20251227_145411_072.jpg">
-    <img src="IMG_20251227_145406_095.jpg">
+    <img src="foto1.jpg">
+    <img src="foto2.jpg">
+    <img src="foto3.jpg">
+    <img src="foto4.jpg">
   </div>
 </section>
 
 <section>
-  <h2>🎵 Música</h2>
+  <h2>🎵 Músikinha</h2>
   <audio controls autoplay loop>
     <source src="musica.mp3" type="audio/mpeg">
     Seu navegador não suporta áudio.
@@ -124,10 +143,11 @@ footer{
 </section>
 
 <footer>
-  Pra sempre nós 💜
+  Pra sempre nós 🤍😍
 </footer>
 
 <script>
+/* ⏳ CONTADOR */
 const inicio = new Date("2025-12-03T00:00:00");
 
 function atualizar(){
@@ -148,6 +168,17 @@ function atualizar(){
 
 setInterval(atualizar,1000);
 atualizar();
+
+/* 🌸 FLORES CAINDO */
+for(let i=0;i<20;i++){
+  const flor = document.createElement("div");
+  flor.className = "flor";
+  flor.innerText = "🌸";
+  flor.style.left = Math.random()*100 + "vw";
+  flor.style.animationDuration = (5 + Math.random()*5) + "s";
+  flor.style.fontSize = (16 + Math.random()*20) + "px";
+  document.body.appendChild(flor);
+}
 </script>
 
 </body>
