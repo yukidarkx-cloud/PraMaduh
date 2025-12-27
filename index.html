@@ -1,82 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nosso Amor 😍</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&family=Parisienne&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:Poppins,sans-serif;
+  background:linear-gradient(180deg,#0f0f14,#1b2a4e);
+  color:#fff;
+  overflow:hidden;
+}
+
+/* 🌸 FLORES */
+.flower{
+  position:fixed;
+  top:-30px;
+  font-size:22px;
+  animation:fall linear forwards;
+  pointer-events:none;
+}
+@keyframes fall{
+  to{transform:translateY(110vh);opacity:0}
+}
+
+/* 🔒 SENHA */
+#senha-box{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(135deg,#b57edc,#1b2a4e);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+input{
+  padding:12px;
+  border-radius:20px;
+  border:none;
+  margin-top:15px;
+  text-align:center;
+}
+button{
+  margin-top:15px;
+  padding:10px 30px;
+  border-radius:20px;
+  border:none;
+  cursor:pointer;
+}
+#erro{display:none;color:#fff;margin-top:10px}
+
+/* 🤍 PRE INTRO */
+#pre-intro,#intro,#site{display:none}
+#pre-intro{
+  position:fixed;
+  inset:0;
+  background:#b57edc;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+.heart-touch{font-size:90px;animation:pulse 2s infinite;cursor:pointer}
+@keyframes pulse{50%{transform:scale(1.15)}}
+
+#intro{
+  position:fixed;
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+}
+#intro h1{font-family:'Great Vibes';font-size:42px;color:#b57edc}
+#enter{margin-top:20px;cursor:pointer}
+
+#site{
+  padding:30px;
+  text-align:center;
+}
+#site h2{font-family:'Great Vibes';font-size:36px;color:#b57edc}
+#timer{margin-top:10px}
+</style>
+</head>
+
+<body>
+
+<div id="senha-box">
+  <h2>Digite a senha 🤍</h2>
+  <input id="senha" type="password" placeholder="senha">
+  <button onclick="verificarSenha()">Entrar</button>
+  <div id="erro">Essa senha não abre o meu coração 🌸</div>
+</div>
+
+<div id="pre-intro">
+  <div class="heart-touch">🤍</div>
+  <p>Toque aqui</p>
+</div>
+
+<div id="intro">
+  <h1>Para o amor da minha vida ❤️</h1>
+  <div id="enter">Clique aqui ✨</div>
+</div>
+
+<div id="site">
+  <h2>Estamos juntos há ♾️</h2>
+  <div id="timer"></div>
+</div>
+
+<audio id="music" loop>
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
 <script>
-const senhaCorreta = "Maria2609";
+const senhaCorreta="Maria2609";
 
-const music = document.getElementById("music");
-const timer = document.getElementById("timer");
-const heart = document.querySelector(".heart-touch");
+const senhaBox=document.getElementById("senha-box");
+const erro=document.getElementById("erro");
+const senhaInput=document.getElementById("senha");
+const preIntro=document.getElementById("pre-intro");
+const intro=document.getElementById("intro");
+const site=document.getElementById("site");
+const enter=document.getElementById("enter");
+const heart=document.querySelector(".heart-touch");
+const music=document.getElementById("music");
+const timer=document.getElementById("timer");
 
-const senhaBox = document.getElementById("senha-box");
-const frases = document.getElementById("frases");
-const preIntro = document.getElementById("pre-intro");
-const intro = document.getElementById("intro");
-const site = document.getElementById("site");
-const erro = document.getElementById("erro");
-const senhaInput = document.getElementById("senha");
-const enter = document.getElementById("enter");
-
-/* ===== SENHA ===== */
 function verificarSenha(){
-  if (senhaInput.value === senhaCorreta) {
-    erro.style.display = "none";
-    senhaBox.style.display = "none";
-    frases.style.display = "flex";
-
-    setTimeout(() => {
-      frases.style.display = "none";
-      preIntro.style.display = "flex";
-    }, 7000);
-  } else {
-    erro.style.display = "block";
+  if(senhaInput.value===senhaCorreta){
+    senhaBox.style.display="none";
+    preIntro.style.display="flex";
+  }else{
+    erro.style.display="block";
   }
 }
 
 /* 🌸 FLORES */
-setInterval(() => {
-  const f = document.createElement("div");
-  f.className = "flower";
-  f.textContent = "🌸";
-  f.style.left = Math.random() * 100 + "vw";
-  f.style.setProperty("--x", Math.random());
-  f.style.animationDuration = 6 + Math.random() * 4 + "s";
+setInterval(()=>{
+  const f=document.createElement("div");
+  f.className="flower";
+  f.textContent="🌸";
+  f.style.left=Math.random()*100+"vw";
+  f.style.animationDuration=5+Math.random()*5+"s";
   document.body.appendChild(f);
-  setTimeout(() => f.remove(), 10000);
-}, 700);
+  setTimeout(()=>f.remove(),10000);
+},600);
 
-/* 🤍 CORAÇÃO + MÚSICA */
-heart.onclick = () => {
-  music.volume = 0;
-  music.play().catch(() => {});
-
-  let v = 0;
-  let fade = setInterval(() => {
-    if (v < 0.6) {
-      v += 0.02;
-      music.volume = v;
-    } else {
-      clearInterval(fade);
-    }
-  }, 120);
-
-  setTimeout(() => {
-    preIntro.style.display = "none";
-    intro.style.display = "flex";
-  }, 1000);
+heart.onclick=()=>{
+  music.play().catch(()=>{});
+  preIntro.style.display="none";
+  intro.style.display="flex";
 };
 
-/* ✨ ENTRAR NO SITE */
-enter.onclick = () => {
-  intro.style.display = "none";
-  site.style.display = "block";
+enter.onclick=()=>{
+  intro.style.display="none";
+  site.style.display="block";
 };
 
-/* ⏱️ CRONÔMETRO */
-const start = new Date("2025-12-03T21:06:10");
-setInterval(() => {
-  const diff = new Date() - start;
-  timer.innerHTML =
-    Math.floor(diff / 86400000) + " dias " +
-    Math.floor(diff / 3600000) % 24 + "h " +
-    Math.floor(diff / 60000) % 60 + "m " +
-    Math.floor(diff / 1000) % 60 + "s";
-}, 1000);
-  </script>
+const start=new Date("2025-12-03T21:06:10");
+setInterval(()=>{
+  const d=new Date()-start;
+  timer.innerHTML=
+    Math.floor(d/86400000)+" dias "+
+    Math.floor(d/3600000)%24+"h "+
+    Math.floor(d/60000)%60+"m "+
+    Math.floor(d/1000)%60+"s";
+},1000);
+</script>
+
+</body>
+</html>
