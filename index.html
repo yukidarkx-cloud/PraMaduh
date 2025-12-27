@@ -3,144 +3,151 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pra Maduh 💖</title>
+<title>Pra você, meu amor 💍❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+body{
+  margin:0;
+  font-family:'Poppins', sans-serif;
+  background: linear-gradient(135deg,#0b1020,#2b0f2f,#4b0f2f);
+  color:#fff;
 }
 
-body {
-    min-height: 100vh;
-    background: url("4a5322d2-e72b-40f1-8c8f-f182982ba317.jpeg") no-repeat center center fixed;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
+header{
+  padding:60px 20px;
+  text-align:center;
 }
 
-/* FUNDO ESCURO */
-.overlay {
-    background: rgba(0, 0, 0, 0.55);
-    min-height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+header h1{
+  font-family:'Great Vibes', cursive;
+  font-size:3em;
 }
 
-/* CARD */
-.container {
-    width: 90%;
-    max-width: 420px;
-    text-align: center;
-    padding: 25px;
-    border-radius: 20px;
-    backdrop-filter: blur(6px);
+header p{
+  font-family:'Dancing Script', cursive;
+  font-size:1.5em;
 }
 
-/* TÍTULO */
-h1 {
-    font-size: 2rem;
-    margin-bottom: 10px;
+section{
+  background:rgba(0,0,0,0.55);
+  margin:20px;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
 }
 
-h2 {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    font-weight: normal;
+h2{
+  color:#b388ff;
+  text-align:center;
+  font-family:'Dancing Script', cursive;
+  font-size:2em;
 }
 
-/* FRASE */
-.frase {
-    margin-top: 20px;
-    font-size: 1.1rem;
+.editavel{
+  border:2px dashed #b388ff;
+  padding:15px;
+  border-radius:15px;
+  text-align:center;
 }
 
-/* SENHA */
-#senhaBox {
-    display: block;
+.contador{
+  font-size:1.2em;
+  text-align:center;
+  margin-top:10px;
 }
 
-input {
-    width: 100%;
-    padding: 14px;
-    border-radius: 12px;
-    border: none;
-    outline: none;
-    font-size: 1rem;
-    margin-bottom: 12px;
+.galeria{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:15px;
 }
 
-button {
-    width: 100%;
-    padding: 14px;
-    border-radius: 12px;
-    border: none;
-    font-size: 1rem;
-    background: #ff4d6d;
-    color: white;
-    cursor: pointer;
+.galeria img{
+  width:100%;
+  border-radius:15px;
+  border:2px solid #b388ff;
 }
 
-button:hover {
-    opacity: 0.9;
+audio{
+  width:100%;
+  margin-top:10px;
 }
 
-/* CONTEÚDO */
-#conteudo {
-    display: none;
+footer{
+  text-align:center;
+  padding:20px;
+  color:#ddd;
 }
 </style>
 </head>
 
 <body>
-<div class="overlay">
 
-    <!-- SENHA -->
-    <div class="container" id="senhaBox">
-        <h1>Digite a senha 💕</h1>
-        <input type="password" id="senha" placeholder="Senha">
-        <button onclick="verificarSenha()">Entrar</button>
-    </div>
+<header>
+  <h1>Meu Amor ❤️</h1>
+  <p>Fiz esse site pra demonstrar só um pedacinho do meu amor por ti 🤍</p>
+</header>
 
-    <!-- CONTEÚDO -->
-    <div class="container" id="conteudo">
-        <h1>Estamos juntos há ⏳</h1>
-        <h2 id="dias"></h2>
+<section>
+  <h2>💌 Mensagem</h2>
+  <div class="editavel">
+    Desde que você entrou na minha vida, tudo ficou mais bonito.
+    Obrigado por cada sorriso, cada conversa e cada momento ao seu lado.
+    Eu te amo, Maduh 😍
+  </div>
+</section>
 
-        <div class="frase">
-            Você é minha pessoa favorita 💖
-        </div>
-    </div>
+<section>
+  <h2>⏳ Nosso Tempo Juntos</h2>
+  <p class="editavel">Estamos juntos desde: 03/12/2025</p>
+  <div class="contador" id="contador"></div>
+</section>
 
-</div>
+<section>
+  <h2>📸 MINHA Princesa,só minha 😍</h2>
+  <div class="galeria">
+    <img src="IMG_20251227_144107_228.jpg">
+    <img src="IMG_20250813_184447_594.jpg">
+    <img src="IMG_20251227_145411_072.jpg">
+    <img src="IMG_20251227_145406_095.jpg">
+  </div>
+</section>
+
+<section>
+  <h2>🎵 Música</h2>
+  <audio controls autoplay loop>
+    <source src="musica.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+  </audio>
+</section>
+
+<footer>
+  Pra sempre nós 💜
+</footer>
 
 <script>
-const senhaCorreta = "EuTeAmoMaria"; // 🔐 TROQUE SE QUISER
+const inicio = new Date("2025-12-03T00:00:00");
 
-function verificarSenha() {
-    const senha = document.getElementById("senha").value;
-    if (senha === senhaCorreta) {
-        document.getElementById("senhaBox").style.display = "none";
-        document.getElementById("conteudo").style.display = "block";
-        calcularDias();
-    } else {
-        alert("Coloca a senha certo, sua lerda😒");
-    }
+function atualizar(){
+  const agora = new Date();
+  let diff = agora - inicio;
+
+  const dias = Math.floor(diff / 86400000);
+  diff %= 86400000;
+  const horas = Math.floor(diff / 3600000);
+  diff %= 3600000;
+  const minutos = Math.floor(diff / 60000);
+  diff %= 60000;
+  const segundos = Math.floor(diff / 1000);
+
+  document.getElementById("contador").innerText =
+    `${dias} dias, ${horas}h ${minutos}m ${segundos}s ❤️`;
 }
 
-function calcularDias() {
-    const dataInicio = new Date("2025-12-03"); // 📅 DATA QUE VOCÊS COMEÇARAM
-    const hoje = new Date();
-    const diff = hoje - dataInicio;
-    const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
-    document.getElementById("dias").innerText = dias + " dias juntos 🤍";
-}
+setInterval(atualizar,1000);
+atualizar();
 </script>
 
 </body>
