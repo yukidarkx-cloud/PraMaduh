@@ -3,100 +3,92 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pra você, meu amor 💍❤️</title>
+<title>Pra você, meu amor 💜</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 body{
   margin:0;
-  font-family:'Poppins', sans-serif;
-  background: linear-gradient(135deg,#05010a,#1a0624,#2a0a3d);
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#05010a,#1a0033,#2b003d);
   color:#fff;
   overflow-x:hidden;
 }
 
 header{
-  padding:60px 20px;
   text-align:center;
+  padding:60px 20px;
 }
 
 header h1{
-  font-family:'Great Vibes', cursive;
+  font-family:'Great Vibes',cursive;
   font-size:3em;
+  color:#c77dff;
 }
 
 header p{
-  font-family:'Dancing Script', cursive;
-  font-size:1.5em;
+  opacity:.9;
 }
 
 section{
-  background:rgba(0,0,0,0.6);
+  background:rgba(0,0,0,.55);
   margin:20px;
-  padding:30px;
+  padding:25px;
   border-radius:20px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.6);
+  box-shadow:0 0 30px rgba(128,0,255,.25);
 }
 
 h2{
-  color:#c7a4ff;
   text-align:center;
-  font-family:'Dancing Script', cursive;
-  font-size:2em;
-}
-
-.editavel{
-  border:2px dashed #c7a4ff;
-  padding:15px;
-  border-radius:15px;
-  text-align:center;
+  color:#d6a3ff;
+  font-family:'Great Vibes',cursive;
+  font-size:2.2em;
 }
 
 .contador{
-  font-size:1.2em;
   text-align:center;
-  margin-top:10px;
+  font-size:1.3em;
+  margin-top:15px;
 }
 
 .galeria{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
   gap:15px;
+  margin-top:20px;
 }
 
 .galeria img{
   width:100%;
   border-radius:15px;
-  border:2px solid #c7a4ff;
+  box-shadow:0 0 15px rgba(200,150,255,.4);
 }
 
 audio{
   width:100%;
-  margin-top:10px;
+  margin-top:15px;
 }
 
 footer{
   text-align:center;
-  padding:20px;
-  color:#ddd;
+  padding:25px;
+  opacity:.8;
 }
 
-/* 🌸 FLORES */
+/* flores */
 .flor{
   position:fixed;
-  top:-10%;
-  font-size:24px;
+  top:-50px;
+  font-size:20px;
   animation: cair linear infinite;
-  opacity:0.8;
+  pointer-events:none;
 }
 
 @keyframes cair{
-  from{
-    transform: translateY(-10vh) rotate(0deg);
-  }
   to{
-    transform: translateY(110vh) rotate(360deg);
+    transform:translateY(110vh) rotate(360deg);
+    opacity:0;
   }
 }
 </style>
@@ -105,80 +97,81 @@ footer{
 <body>
 
 <header>
-  <h1>Meu Amor, EU TI AMOO ❤️</h1>
-  <p>Fiz esse site pra demonstrar só um pedacinho do meu amor por ti 🤍</p>
+  <h1>Meu Amor 💜</h1>
+  <p>Fiz isso com todo amor do mundo pra você</p>
 </header>
 
 <section>
   <h2>💌 Mensagem</h2>
-  <div class="editavel">
+  <p style="text-align:center">
     Desde que você entrou na minha vida, tudo ficou mais bonito.
-    Obrigado por estar sempre cmg, por cada sorriso, cada conversa e cada momento ao seu lado.
-    Eu te amo, Maduh 💗
-  </div>
+    Obrigado por cada sorriso, cada momento e cada detalhe.
+    Eu te amo, Maria 🤍
+  </p>
 </section>
 
 <section>
-  <h2>⏳ Nosso Tempo Juntinhos</h2>
-  <p class="editavel">Estamos juntos desde: 03/12/2025</p>
+  <h2>⏳ Nosso Tempo Juntos</h2>
+  <p style="text-align:center">Estamos juntos desde: 03/12/2025</p>
   <div class="contador" id="contador"></div>
 </section>
 
 <section>
   <h2>📸 Minha Princesa 😍</h2>
   <div class="galeria">
-    <img src="foto1.jpg">
-    <img src="foto2.jpg">
-    <img src="foto3.jpg">
-    <img src="foto4.jpg">
+    <img src="Imagem/IMG_20251227_144107_228.jpg">
+    <img src="Imagem/IMG_20250813_184447_594.jpg">
+    <img src="Imagem/IMG_20251227_145411_072.jpg">
+    <img src="Imagem/IMG_20251227_145406_095.jpg">
   </div>
 </section>
 
 <section>
-  <h2>🎵 Músikinha</h2>
+  <h2>🎵 Nossa Música</h2>
   <audio controls autoplay loop>
-    <source src="musica.mp3" type="audio/mpeg">
+    <source src="Musica/ssstik.io__kielmanibalemusic_1766856743520.mp3" type="audio/mpeg">
     Seu navegador não suporta áudio.
   </audio>
 </section>
 
 <footer>
-  Pra sempre nós 🤍😍
+  Pra sempre nós 💜
 </footer>
 
 <script>
-/* ⏳ CONTADOR */
+// contador em tempo real
 const inicio = new Date("2025-12-03T00:00:00");
 
 function atualizar(){
   const agora = new Date();
   let diff = agora - inicio;
 
-  const dias = Math.floor(diff / 86400000);
-  diff %= 86400000;
-  const horas = Math.floor(diff / 3600000);
-  diff %= 3600000;
-  const minutos = Math.floor(diff / 60000);
-  diff %= 60000;
-  const segundos = Math.floor(diff / 1000);
+  const dias = Math.floor(diff / (1000*60*60*24));
+  diff %= 1000*60*60*24;
+  const horas = Math.floor(diff / (1000*60*60));
+  diff %= 1000*60*60;
+  const minutos = Math.floor(diff / (1000*60));
+  const segundos = Math.floor((diff % (1000*60)) / 1000);
 
   document.getElementById("contador").innerText =
-    `${dias} dias, ${horas}h ${minutos}m ${segundos}s ❤️`;
+    `${dias} dias, ${horas}h ${minutos}m ${segundos}s 💜`;
 }
 
 setInterval(atualizar,1000);
 atualizar();
 
-/* 🌸 FLORES CAINDO */
-for(let i=0;i<20;i++){
-  const flor = document.createElement("div");
-  flor.className = "flor";
-  flor.innerText = "🌸";
-  flor.style.left = Math.random()*100 + "vw";
-  flor.style.animationDuration = (5 + Math.random()*5) + "s";
-  flor.style.fontSize = (16 + Math.random()*20) + "px";
-  document.body.appendChild(flor);
+// flores caindo
+function flor(){
+  const f = document.createElement("div");
+  f.className = "flor";
+  f.innerText = "🌸";
+  f.style.left = Math.random()*100+"vw";
+  f.style.animationDuration = (3+Math.random()*5)+"s";
+  document.body.appendChild(f);
+  setTimeout(()=>f.remove(),8000);
 }
+
+setInterval(flor,500);
 </script>
 
 </body>
