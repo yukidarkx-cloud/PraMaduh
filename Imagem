@@ -1,6 +1,9 @@
-<div class="galeria">
-  <img src="Imagem/IMG_20251227_144107_228.jpg">
-  <img src="Imagem/IMG_20250813_184447_594.jpg">
-  <img src="Imagem/IMG_20251227_145411_072.jpg">
-  <img src="Imagem/IMG_20251227_145406_095.jpg">
-</div>
+PraMaduh/
+│
+├── index.html   ← (o código que te mandei)
+│
+├── Imagem/
+│   ├── IMG_20250813_184447_594.jpg
+│   ├── IMG_20251227_144107_228.jpg
+│   ├── IMG_20251227_145411_072.jpg
+│   └── IMG_20251227_145406_095.jpg
